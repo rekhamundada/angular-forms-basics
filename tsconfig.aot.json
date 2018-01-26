@@ -13,6 +13,10 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "assets": [
+      "assets",
+      "api"
+    ],
     "lib": ["es6", "dom"]
   },
   "include": [

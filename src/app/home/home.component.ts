@@ -30,6 +30,8 @@ export class HomeComponent {
       this.hasPrimaryLanguageError = true;
     else
       this.hasPrimaryLanguageError = false;
+
+      console.log('hasPrimaryLanguageError',this.hasPrimaryLanguageError)
   }
 
   submitForm(form: NgForm){

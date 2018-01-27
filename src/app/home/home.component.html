@@ -1,6 +1,6 @@
 <div class="container">
 <h3>Employee Form</h3>
-  <form #form="ngForm" (submit)="submitForm(form)" novalidate>
+  <form  #form="ngForm" (submit)="submitForm(form)" novalidate>
 
     <div class="form-group" [class.is-invalid]="firstName.invalid && firstName.touched">
         <label>First Name</label>
@@ -44,9 +44,10 @@
 
     <div class="form-group" [class.is-invalid]="hasPrimaryLanguageError">
       <label class="control-label">Primary Language</label>
-      <select class="form-control" #primaryLangauge  required name="primaryLangauge"
-      (blur)="validatePrimaryLanguage(primaryLangauge.value)"
-      (change)="validatePrimaryLanguage(primaryLangauge.value)"
+      <select  class="form-control" #primaryLanguage
+      name="primaryLanguage"
+      (blur)="validatePrimaryLanguage(primaryLanguage.value)"
+      (change)="validatePrimaryLanguage(primaryLanguage.value)"
       [(ngModel)]="employee.primaryLanguage">
 
          <option value="default">Select a Language...</option>

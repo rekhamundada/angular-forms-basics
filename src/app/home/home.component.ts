@@ -12,11 +12,17 @@ import { FormPosterService } from '../services/form-poster.service';
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
-  languages = ['English' , 'Hindi', 'Spanish' , 'Others'];
+  languages = [];
   employee = new Employee('', '',true,'', 'default');
   hasPrimaryLanguageError= false;
 
-  constructor(private formPosterService: FormPosterService){ }
+  constructor(private formPosterService: FormPosterService) {
+    this.formPosterService.getLanguages()
+      .subscribe(
+        data => this.languages = data.lang,
+        err => console.log('get Error' , err)
+      )
+   }
 
   firstNameToUpperCase(value: string) {
     if(value.length > 0)
@@ -39,9 +45,9 @@ export class HomeComponent {
   this.validatePrimaryLanguage(this.employee.primaryLanguage)
   if(this.hasPrimaryLanguageError) return
    this.formPosterService.postEmployeeForm(this.employee)
-    // .subscribe(
-    //   data => console.log('success' , data),
-    //   err => console.log('Error' , err)
-    // )
+    .subscribe(
+      data => console.log('success' , data),
+      err => console.log('Error' , err)
+    )
   }
 }
